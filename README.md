@@ -52,6 +52,33 @@ docker run -p 5000:5000 oden:latest
 - 簡單的 Flask web 伺服器
 - 主頁面顯示「Hello」
 
+## Source Code
+
+### 目錄結構
+
+```
+oden/
+├── app.py              # Flask 主應用程式
+├── requirements.txt    # Python 依賴清單
+├── Dockerfile          # Docker 容器配置
+└── templates/          # HTML 模板目錄
+    └── index.html      # 主頁面模板
+```
+
+### 核心文件
+
+#### app.py
+Flask 應用的主要入口點，定義路由和應用配置。
+
+#### requirements.txt
+列出項目所有的 Python 依賴包。
+
+#### Dockerfile
+定義 Docker 映像的構建步驟，用於容器化應用。
+
+#### templates/index.html
+渲染「Hello」頁面的 HTML 模板。
+
 ## 貢獻
 
 歡迎提交 Issues 和 Pull Requests！
