@@ -20,10 +20,10 @@ jobs:
 
       - name: Build Docker images
         run: |
-          docker build -t your-docker-repo:latest .
-          docker build -t your-docker-repo:${{ github.run_id }} .
+          docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/oden:latest .
+          docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/oden:${{ github.run_id }} .
 
       - name: Push images
         run: |
-          docker push your-docker-repo:latest
-          docker push your-docker-repo:${{ github.run_id }}
+          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/oden:latest
+          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/oden:${{ github.run_id }}
