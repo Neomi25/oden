@@ -3,7 +3,7 @@ name: Build and Push Docker Images
 on:
   workflow_dispatch:
 env:
-  IMAGE_NAME: oden_dev
+  IMAGE_NAME: oden
 
 jobs:
   build:
