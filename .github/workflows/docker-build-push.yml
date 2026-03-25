@@ -34,8 +34,9 @@ jobs:
           # docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/oden:${{ github.run_id }} .
 
           # GHCR tags
-          docker build -t ghcr.io/${{ github.repository_owner }}/oden:latest .
-          docker build -t ghcr.io/${{ github.repository_owner }}/oden:${{ github.run_id }} .
+          OWNER=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
+          docker build -t ghcr.io/$OWNER/oden:latest .
+          docker build -t ghcr.io/$OWNER/oden:${{ github.run_id }} .
 
       - name: Push images
         run: |
@@ -44,6 +45,7 @@ jobs:
           # docker push ${{ secrets.DOCKER_HUB_USERNAME }}/oden:${{ github.run_id }}
 
           # Push to GHCR
-          docker push ghcr.io/${{ github.repository_owner }}/oden:latest
-          docker push ghcr.io/${{ github.repository_owner }}/oden:${{ github.run_id }}
+          OWNER=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
+          docker push ghcr.io/$OWNER/oden:latest
+          docker push ghcr.io/$OWNER/oden:${{ github.run_id }}
 
