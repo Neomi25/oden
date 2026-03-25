@@ -32,10 +32,8 @@ jobs:
           # docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/oden:${{ github.run_id }} .
 
           # GHCR tags
-          OWNER=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
-          echo "OWNER=${{ github.repository_owner }}"
-          docker build -t ghcr.io/Neomi25/oden:latest .
-          docker build -t ghcr.io/Neomi25/oden:${{ github.run_id }} .
+          docker build -t ghcr.io/neomi25/oden:latest .
+          docker build -t ghcr.io/neomi25/oden:${{ github.run_id }} .
 
       - name: Push images
         run: |
@@ -45,6 +43,6 @@ jobs:
 
           # Push to GHCR
           OWNER=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
-          docker push ghcr.io/Neomi25/oden:latest
-          docker push ghcr.io/Neomi25/oden:${{ github.run_id }}
+          docker push ghcr.io/neomi25/oden:latest
+          docker push ghcr.io/neomi25/oden:${{ github.run_id }}
 
