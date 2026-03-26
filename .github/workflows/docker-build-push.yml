@@ -6,8 +6,11 @@ env:
   IMAGE_NAME: oden
 
 jobs:
-  build:
+  push:
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
     steps:
       - uses: actions/checkout@v2
       - name: Build image       
